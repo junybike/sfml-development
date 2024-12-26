@@ -5,6 +5,7 @@
 #ifndef SNAKE_H
 #define SNAKE_H
 
+#include "Textbox.h"
 #include "SFML/Graphics/RectangleShape.hpp"
 #include "SFML/Graphics/RenderWindow.hpp"
 #include "SFML/System/Vector2.hpp"
@@ -22,7 +23,7 @@ using SnakeContainer = std::vector<SnakeSegment>;
 class Snake
 {
 public:
-    Snake(int l_block_size);
+    Snake(int l_block_size, Textbox* l_log);
     ~Snake();
 
     void SetDirection(Direction l_dir);           // Set direction of snake
@@ -46,6 +47,8 @@ public:
     void Cut(int l_segments);                     // Cuts the snake
     void Render(sf::RenderWindow& l_window);      // Rendering images
 
+    Direction GetPhysicalDirection();
+
 private:
     void CheckCollision();                      // Check snake collision against walls
     SnakeContainer m_snakebody;                   // Segment vector
@@ -56,6 +59,8 @@ private:
     int m_score;                                  // Score of snake
     bool m_lost;                                  // Lose state
     sf::RectangleShape m_body;                    // Shape used in rendering
+
+    Textbox* m_log;
 };
 
 #endif //SNAKE_H

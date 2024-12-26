@@ -14,21 +14,33 @@ FetchContent_Declare(SFML
         SYSTEM)
 FetchContent_MakeAvailable(SFML)
 
+file(GLOB SOURCE
+        src/*.cpp
+)
+file(GLOB INCLUDE
+        include/*.h
+)
+
 # Define the executable
 add_executable(main
-        src/snake.cpp
-        include/snake.h
+        ${SOURCE} ${INCLUDE}
 )
 target_link_libraries(main PRIVATE sfml-graphics)
 target_compile_features(main PRIVATE cxx_std_17)
 
 # Define the source directory and image path
 set(IMAGE_PATH ${CMAKE_SOURCE_DIR}/img/mushroom.png)
+set(FONT_PATH ${CMAKE_SOURCE_DIR}/font/arial.ttf)
 
 # Add custom command to copy the image to the build output directory
 add_custom_command(TARGET main POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
         ${IMAGE_PATH} ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/mushroom.png
+)
+
+add_custom_command(TARGET main POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        ${FONT_PATH} ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/arial.ttf
 )
 
 if(WIN32)
