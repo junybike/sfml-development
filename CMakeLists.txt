@@ -31,6 +31,7 @@ target_compile_features(main PRIVATE cxx_std_17)
 # Define the source directory and image path
 set(IMAGE_PATH ${CMAKE_SOURCE_DIR}/img/mushroom.png)
 set(FONT_PATH ${CMAKE_SOURCE_DIR}/font/arial.ttf)
+set(FILE_PATH ${CMAKE_SOURCE_DIR}/file/keys.cfg)
 
 # Add custom command to copy the image to the build output directory
 add_custom_command(TARGET main POST_BUILD
@@ -41,6 +42,11 @@ add_custom_command(TARGET main POST_BUILD
 add_custom_command(TARGET main POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
         ${FONT_PATH} ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/arial.ttf
+)
+
+add_custom_command(TARGET main POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        ${FILE_PATH} ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/keys.cfg
 )
 
 if(WIN32)

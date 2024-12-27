@@ -7,6 +7,7 @@
 
 #include <string>
 
+#include "eventManager.h"
 #include "SFML/Graphics/Drawable.hpp"
 #include "SFML/Graphics/RenderWindow.hpp"
 #include "SFML/System/Vector2.hpp"
@@ -32,8 +33,12 @@ public:
     sf::Vector2u GetWindowSize();
     sf::RenderWindow* GetRenderWindow();
 
-    void ToggleFullscreen();
     void Draw(sf::Drawable& l_drawable);
+
+    bool IsFocused();
+    EventManager* GetEventManager();
+    void ToggleFullScreen(EventDetails* l_details);
+    void Close(EventDetails* l_details = nullptr);
 
 private:
     void Setup(const std::string& l_title, const sf::Vector2u& l_size);
@@ -46,6 +51,9 @@ private:
 
     bool m_isDone;
     bool m_isFullScreen;
+
+    EventManager m_eventManager;
+    bool m_isFocused;
 };
 
 #endif //GAMEWINDOW_H
