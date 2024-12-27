@@ -6,4 +6,5 @@ Follows "SFML Game Development by Example" book by Raimondas Pupius
 1.  
 
 ## Versions  
-- Hovering Mushroom  
+- [Hovering Mushroom](https://github.com/junybike/sfml-development/releases/tag/v1.0.0)
+- [Snake](https://github.com/junybike/sfml-development/releases/tag/v2.0.0)  
