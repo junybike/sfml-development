@@ -66,6 +66,7 @@ void Game::Render()
     m_window.BeginDraw();
     m_world.Render(*m_window.GetRenderWindow());
     m_snake.Render(*m_window.GetRenderWindow());
+    m_textbox.Render(*m_window.GetRenderWindow());
     m_window.EndDraw();
 }
 
