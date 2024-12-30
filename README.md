@@ -1,10 +1,2 @@
-# SFML Development  
-Learning game development with C++ and SFML.  
-Follows "SFML Game Development by Example" book by Raimondas Pupius
-
-## How to Run  
-1.  
-
-## Versions  
-- [Hovering Mushroom](https://github.com/junybike/sfml-development/releases/tag/v1.0.0)
-- [Snake](https://github.com/junybike/sfml-development/releases/tag/v2.0.0)  
+# SFML Development - Snake
+Control and feed the snake! Your snake will get longer as it eats! Do not hit its own body or the wall!
